@@ -1,0 +1,40 @@
+---
+description: Project Development Guidelines
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# ec2-docker-compose Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-03-17
+
+## Active Technologies
+- HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password) (001-ec2-docker-compose-terraform)
+- Instance store only (no EBS); m5d/c5d family with instance-store-capable instances (001-ec2-docker-compose-terraform)
+- EBS root volume (default 8 GB gp3); t3.micro/small for cost minimization (001-ec2-docker-compose-terraform)
+
+- HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/tls (for key pair) (001-ec2-docker-compose-terraform)
+
+## Project Structure
+
+```text
+src/
+tests/
+```
+
+## Commands
+
+# Add commands for HCL (Terraform 1.x), Terraform AWS provider 5.x
+
+## Code Style
+
+HCL (Terraform 1.x), Terraform AWS provider 5.x: Follow standard conventions
+
+## Recent Changes
+- 001-ec2-docker-compose-terraform: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password)
+- 001-ec2-docker-compose-terraform: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password)
+- 001-ec2-docker-compose-terraform: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password)
+
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
