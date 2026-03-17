@@ -1,0 +1,15 @@
+# Terraform Cloud backend (optional)
+# Copy this file to backend.tf and set your organization and workspace.
+# Run: terraform login && terraform init
+#
+# When using remote execution, set allowed_cidr in terraform.tfvars or as a workspace variable.
+
+terraform {
+  cloud {
+    organization = "YOUR_ORG"
+
+    workspaces {
+      name = "ec2-docker-compose"
+    }
+  }
+}

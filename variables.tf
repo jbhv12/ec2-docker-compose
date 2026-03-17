@@ -1,7 +1,13 @@
-# Required: Your public IP for security group. Get with: curl -s ifconfig.me
+# Optional: Deployer IP for security group. When null, auto-detected via curl. Required when using Terraform Cloud remote execution.
 variable "allowed_cidr" {
-  description = "CIDR block for inbound access (e.g., deployer IP/32). Get your IP: curl -s ifconfig.me"
+  description = "CIDR block for inbound access (e.g., deployer IP/32). When null, auto-detected. Required when using Terraform Cloud remote execution."
   type        = string
+  default     = null
+
+  validation {
+    condition     = var.allowed_cidr == null || !can(regex(":", var.allowed_cidr))
+    error_message = "allowed_cidr must be IPv4 (no colons). Use x.x.x.x/32 format."
+  }
 }
 
 # Path to your Docker Compose file. Replace docker-compose.yml with your own.
