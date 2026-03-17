@@ -28,18 +28,18 @@
 
    ```bash
    terraform init
-   terraform apply
+   ./deploy.sh
    ```
 
-   Terraform auto-detects your public IP during plan/apply. No terraform.tfvars needed.
+   The `deploy.sh` script auto-detects your public IP. No terraform.tfvars needed.
 
-   **Override IP**: Create `terraform.tfvars` with `allowed_cidr = "YOUR_IP/32"` or pass `-var='allowed_cidr=YOUR_IP/32'`.
+   **Override IP**: Create `terraform.tfvars` with `allowed_cidr = "YOUR_IP/32"` or set `ALLOWED_CIDR` env var.
 
 4. **Access**
 
    ```bash
    terraform output public_ip
-   terraform output -raw ssh_username  # ec2-user
+   terraform output ssh_username       # ec2-user
    terraform output -raw ssh_password  # For SSH (password auth)
    ```
 
@@ -72,24 +72,6 @@ module "app" {
 output "public_ip" { value = module.app.public_ip }
 output "ssh_password" { value = module.app.ssh_password; sensitive = true }
 ```
-
-## Troubleshooting
-
-For more detail, see [quickstart](specs/002-terraform-ip-tfcloud/quickstart.md).
-
-- **"Deployer IP is IPv6"**: Your network exposes IPv6 only. Set `allowed_cidr` to an IPv4 address (e.g., from a VPN) in terraform.tfvars.
-- **"Could not fetch public IP"**: No outbound internet access or IP services unreachable. Set `allowed_cidr` manually in terraform.tfvars.
-
-## Terraform Cloud (Optional)
-
-For remote state and remote execution:
-
-1. Copy `backend-cloud.tf.example` to `backend.tf`
-2. Edit `backend.tf` and set your organization and workspace name
-3. Run `terraform login` and authenticate
-4. Run `terraform init` to re-initialize with the new backend
-
-**Important**: When using Terraform Cloud **remote execution**, you **must** set `allowed_cidr` in terraform.tfvars or as a workspace variable. Auto-detection would return the cloud runner's IP, not yours.
 
 ## Destroy
 
