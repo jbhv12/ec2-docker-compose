@@ -12,6 +12,8 @@ Auto-generated from all feature plans. Last updated: 2026-03-17
 - HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password) (001-ec2-docker-compose-terraform)
 - Instance store only (no EBS); m5d/c5d family with instance-store-capable instances (001-ec2-docker-compose-terraform)
 - EBS root volume (default 8 GB gp3); t3.micro/small for cost minimization (001-ec2-docker-compose-terraform)
+- HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random, external data source (built-in) (002-terraform-ip-tfcloud)
+- EBS root volume (unchanged); Terraform state local by default, optional Terraform Cloud (002-terraform-ip-tfcloud)
 
 - HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/tls (for key pair) (001-ec2-docker-compose-terraform)
 
@@ -31,8 +33,8 @@ tests/
 HCL (Terraform 1.x), Terraform AWS provider 5.x: Follow standard conventions
 
 ## Recent Changes
-- 001-ec2-docker-compose-terraform: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password)
-- 001-ec2-docker-compose-terraform: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password)
+- 002-terraform-ip-tfcloud: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random, external data source (built-in)
+- 002-terraform-ip-tfcloud: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
 - 001-ec2-docker-compose-terraform: Added HCL (Terraform 1.x), Terraform AWS provider 5.x + hashicorp/aws provider, hashicorp/random (for password)
 
 
