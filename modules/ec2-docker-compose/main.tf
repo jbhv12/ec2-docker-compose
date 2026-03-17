@@ -10,7 +10,7 @@ data "aws_ami" "amazon_linux" {
 
 resource "random_password" "ssh_password" {
   length  = 16
-  special = false # Alphanumeric only; special chars can break chpasswd/shell handling
+  special = false  # Alphanumeric only; special chars can break chpasswd/shell handling
 }
 
 resource "aws_instance" "ec2_docker" {

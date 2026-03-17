@@ -1,7 +1,7 @@
 # Copy to terraform.tfvars and set your values
-# Optional: When null, deployer IP is auto-detected. Set when using Terraform Cloud remote execution or to override.
+# Required: Your public IP for security group (get with: curl -s ifconfig.me)
 
-# allowed_cidr = "YOUR_IP/32"   # e.g., "203.0.113.42/32" (optional; auto-detected when not set)
+# allowed_cidr = "YOUR_IP/32"   # e.g., "203.0.113.42/32"
 
 # Optional overrides:
 # aws_region         = "us-east-1"
